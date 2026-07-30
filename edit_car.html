@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Car Information</title>
+</head>
+<body>
+    <h2>Edit Car Details</h2>
+    <form method="POST">
+        <input type="text" name="car_name" value="{{ car.car_name }}" placeholder="Car Name" required><br><br>
+        <input type="text" name="model" value="{{ car.model }}" placeholder="Model" required><br><br>
+        <input type="text" name="cc" value="{{ car.cc }}" placeholder="CC" required><br><br>
+        <input type="text" name="colour" value="{{ car.colour }}" placeholder="Colour" required><br><br>
+        <input type="text" name="grade" value="{{ car.grade }}" placeholder="Grade" required><br><br>
+        <input type="text" name="mileage" value="{{ car.mileage }}" placeholder="Mileage" required><br><br>
+        <input type="text" name="extra_feature" value="{{ car.extra_feature }}" placeholder="Extra Features" required><br><br>
+        
+        <select name="hybrid_status" required>
+            <option value="Hybrid" {% if car.hybrid_status == 'Hybrid' %}selected{% endif %}>Hybrid</option>
+            <option value="Non-Hybrid" {% if car.hybrid_status == 'Non-Hybrid' %}selected{% endif %}>Non-Hybrid</option>
+            <option value="N/A" {% if car.hybrid_status == 'N/A' %}selected{% endif %}>N/A (e.g. Hiace)</option>
+        </select><br><br>
+
+        <button type="submit">Update Car</button>
+        <a href="/owner?tab=menu" style="margin-left: 10px;">Cancel</a>
+    </form>
+</body>
+</html>
